@@ -26,6 +26,7 @@ jobs:
             WDB_DATABASE: ${{ secrets.WDB_DATABASE }}	
             WDB_COLLECTION: ${{ secrets.WDB_COLLECTION }}	
         run: |	
+            echo $WDB_RETRO_BASE_URL
             cd  ${GITHUB_WORKSPACE}/jobs/update-projects/
             go build -o bin/update-projects main.go	
             ./bin/update-projects
