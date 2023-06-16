@@ -26,5 +26,6 @@ jobs:
             WDB_DATABASE: ${{ secrets.WDB_DATABASE }}	
             WDB_COLLECTION: ${{ secrets.WDB_COLLECTION }}	
         run: |	
-            go build -o jobs/update-projects/bin/update-projects jobs/update-projects/main.go	
-            jobs/update-projects/bin/update-projects
+            cd  ${GITHUB_WORKSPACE}/jobs/update-projects/
+            go build -o bin/update-projects main.go	
+            ./update-projects
