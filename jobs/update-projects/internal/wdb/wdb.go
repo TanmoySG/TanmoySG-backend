@@ -12,14 +12,12 @@ import (
 type WdbAdapter struct {
 	httpClient    http.Client
 	connectionURL string
-	retroClient   wdbr.WdbRetroClient
 }
 
 func NewClient(baseURL string, cluster string, token string) WdbAdapter {
 	return WdbAdapter{
 		httpClient:    *http.DefaultClient,
 		connectionURL: fmt.Sprintf("%s/connect?cluster=%s&token=%s", baseURL, cluster, token),
-		retroClient:   wdbr.NewClient(baseURL, cluster, token),
 	}
 }
 
@@ -41,7 +39,36 @@ func getError(responseBytes []byte) error {
 }
 
 func (w WdbAdapter) GetData(database, collection string) (*wdbr.GetDataResponse, error) {
-	return w.retroClient.GetData(database, collection)
+	requestBody := wdbr.RequestBody{
+		Action: "get-data",
+		Payload: wdbr.Payload{
+			Database:   database,
+			Collection: collection,
+		},
+	}
+
+	requestBodyBytes, err := json.Marshal(requestBody)
+	if err != nil {
+		return nil, err
+	}
+
+	responseBytes, err := requests.Query(w.httpClient, "", http.MethodPost, w.connectionURL, requestBodyBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	err = getError(responseBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	var getDataResponse wdbr.GetDataResponse
+	err = json.Unmarshal(responseBytes, &getDataResponse)
+	if err != nil {
+		return nil, err
+	}
+
+	return &getDataResponse, nil
 }
 
 func (w WdbAdapter) AddData(database, collection string, data map[string]interface{}) error {
