@@ -1,6 +1,7 @@
 name: Sync Projects
 
-on:	
+on:
+  push:	
   workflow_dispatch:	
   schedule:	
     # Runs “At 00:00 on every 5th day-of-week.” (see https://crontab.guru)	
@@ -26,7 +27,6 @@ jobs:
             WDB_DATABASE: ${{ secrets.WDB_DATABASE }}	
             WDB_COLLECTION: ${{ secrets.WDB_COLLECTION }}	
         run: |	
-            echo $WDB_RETRO_BASE_URL
             cd  ${GITHUB_WORKSPACE}/jobs/update-projects/
             go build -o bin/update-projects main.go	
             ./bin/update-projects
