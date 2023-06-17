@@ -52,7 +52,7 @@ func (w WdbAdapter) GetData(database, collection string) (*wdbr.GetDataResponse,
 		return nil, err
 	}
 
-	responseBytes, err := requests.Query(w.httpClient, "", http.MethodPost, w.connectionURL, requestBodyBytes)
+	responseBytes, err := requests.Query(w.httpClient, "", http.MethodGet, w.connectionURL, requestBodyBytes)
 	if err != nil {
 		return nil, err
 	}
