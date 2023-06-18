@@ -1,6 +1,7 @@
 package wdb
 
 import (
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -15,6 +16,7 @@ type WdbAdapter struct {
 }
 
 func NewClient(baseURL string, cluster string, token string) WdbAdapter {
+	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	return WdbAdapter{
 		httpClient:    *http.DefaultClient,
 		connectionURL: fmt.Sprintf("%s/connect?cluster=%s&token=%s", baseURL, cluster, token),
