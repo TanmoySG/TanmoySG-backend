@@ -59,8 +59,6 @@ func (w WdbAdapter) GetData(database, collection string) (*wdbr.GetDataResponse,
 		return nil, err
 	}
 
-	fmt.Println(string(responseBytes))
-
 	err = getError(responseBytes)
 	if err != nil {
 		return nil, err
