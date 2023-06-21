@@ -1,32 +1,32 @@
-name: Sync Projects
+# name: Sync Projects
 
-on:
-  push:	
-  workflow_dispatch:	
-  schedule:	
-    # Runs “At 00:00 on every 5th day-of-week.” (see https://crontab.guru)	
-    - cron: '0 0 * * */5'	
+# on:
+#   push:	
+#   workflow_dispatch:	
+#   schedule:	
+#     # Runs “At 00:00 on every 5th day-of-week.” (see https://crontab.guru)	
+#     - cron: '0 0 * * */5'	
 
-jobs:	
-  build:	
-    runs-on: ubuntu-latest	
-    steps:	
-      - uses: actions/checkout@v3	
-      - name: Set up Go	
-        uses: actions/setup-go@v4	
-        with:	
-          go-version: "1.18"	
-      - name: Build and Run	
-        env:	
-            WDB_RETRO_BASE_URL: ${{ secrets.WDB_RETRO_BASE_URL }}	
-            WDB_RETRO_CLUSTER: ${{ secrets.WDB_RETRO_CLUSTER }}	
-            WDB_RETRO_TOKEN: ${{ secrets.WDB_RETRO_TOKEN }}	
-            GH_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}	
-            GH_QUERY_URL: ${{ secrets.GH_QUERY_URL }}	
-            GH_USERNAME: ${{ secrets.GH_USERNAME }}	
-            WDB_DATABASE: ${{ secrets.WDB_DATABASE }}	
-            WDB_COLLECTION: ${{ secrets.WDB_COLLECTION }}	
-        run: |	
-            cd  ${GITHUB_WORKSPACE}/jobs/update-projects/
-            go build -o bin/update-projects main.go	
-            ./bin/update-projects
+# jobs:	
+#   build:	
+#     runs-on: ubuntu-latest	
+#     steps:	
+#       - uses: actions/checkout@v3	
+#       - name: Set up Go	
+#         uses: actions/setup-go@v4	
+#         with:	
+#           go-version: "1.18"	
+#       - name: Build and Run	
+#         env:	
+#             WDB_RETRO_BASE_URL: ${{ secrets.WDB_RETRO_BASE_URL }}	
+#             WDB_RETRO_CLUSTER: ${{ secrets.WDB_RETRO_CLUSTER }}	
+#             WDB_RETRO_TOKEN: ${{ secrets.WDB_RETRO_TOKEN }}	
+#             GH_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}	
+#             GH_QUERY_URL: ${{ secrets.GH_QUERY_URL }}	
+#             GH_USERNAME: ${{ secrets.GH_USERNAME }}	
+#             WDB_DATABASE: ${{ secrets.WDB_DATABASE }}	
+#             WDB_COLLECTION: ${{ secrets.WDB_COLLECTION }}	
+#         run: |	
+#             cd  ${GITHUB_WORKSPACE}/jobs/update-projects/
+#             go build -o bin/update-projects main.go	
+#             ./bin/update-projects
