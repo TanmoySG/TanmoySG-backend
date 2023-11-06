@@ -58,6 +58,5 @@ def log_event(method, url, forwarded_to):
         }
     )
 
-
 if __name__ == "__main__":
-    app.run(port=PROXY_PORT)
+    app.run(port=PROXY_PORT, host='0.0.0.0')
