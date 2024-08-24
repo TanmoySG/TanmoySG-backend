@@ -1,0 +1,133 @@
+{
+    "type": "object",
+    "properties": {
+        "profileKey": {
+            "type": "string"
+        },
+        "profileDetails": {
+            "type": "object",
+            "properties": {
+                "fullName": {
+                    "type": "string"
+                },
+                "currentLoc": {
+                    "type": "string"
+                },
+                "currentOrg": {
+                    "type": "string"
+                },
+                "currentRole": {
+                    "type": "string"
+                },
+                "primaryMail": {
+                    "type": "string"
+                },
+                "primaryPhone": {
+                    "type": "string"
+                },
+                "primaryUrl": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "fullName",
+                "currentLoc",
+                "currentOrg",
+                "currentRole",
+                "primaryMail",
+                "primaryPhone",
+                "primaryUrl"
+            ]
+        },
+        "profileIntro": {
+            "type": "string"
+        },
+        "profileAdditionalDetails": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "link": {
+                        "type": "string"
+                    },
+                    "label": {
+                        "type": "string"
+                    },
+                    "customProperties": {
+                        "type": "object",
+                        "properties": {},
+                        "required": []
+                    }
+                },
+                "required": [
+                    "link",
+                    "label"
+                ]
+            }
+        },
+        "education": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "batch": {
+                        "type": "string"
+                    },
+                    "degree": {
+                        "type": "string"
+                    },
+                    "institute": {
+                        "type": "string"
+                    },
+                    "stream": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "batch",
+                    "degree",
+                    "institute",
+                    "stream"
+                ]
+            }
+        },
+        "social": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "link": {
+                        "type": "string"
+                    },
+                    "service": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "socialIcon": {
+                        "type": "string"
+                    },
+                    "customProperties": {
+                        "type": "object",
+                        "properties": {},
+                        "required": []
+                    }
+                },
+                "required": [
+                    "link",
+                    "service",
+                    "username"
+                ]
+            }
+        }
+    },
+    "required": [
+        "profileKey",
+        "profileDetails",
+        "profileIntro",
+        "profileAdditionalDetails",
+        "education",
+        "social"
+    ]
+}

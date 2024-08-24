@@ -1,0 +1,47 @@
+{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "additionalLink": {
+                "type": "string"
+            },
+            "codeLink": {
+                "type": "string"
+            },
+            "demoLink": {
+                "type": "string"
+            },
+            "description": {
+                "type": "string"
+            },
+            "displayPriority": {
+                "type": "number"
+            },
+            "domain": {
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "techStack": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "customProperties": {
+                "type": "object",
+                "additionalProperties": true
+            }
+        },
+        "required": [
+            "codelink",
+            "description",
+            "displayPriority",
+            "domain",
+            "name",
+            "techStack"
+        ]
+    }
+}
