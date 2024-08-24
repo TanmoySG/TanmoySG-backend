@@ -1,0 +1,37 @@
+{
+    "profileKey": "tanmoysg",
+    "profileDetails": {
+        "fullName": "Tanmoy Sen Gupta",
+        "currentLoc": "Guwahati",
+        "currentOrg": "Optum",
+        "currentRole": "Software Engineer",
+        "primaryMail": "tanmoysps@gmail.com",
+        "primaryPhone": "",
+        "primaryUrl": ""
+    },
+    "profileIntro": "I'm a Software Engineer at Optum - a UnitedHealth Group company, working in the Data Platform Project. A Computer Science Engineer by education, I'm skilled at Golang, Python, JavaScript, React, Docker, K8s, among others and have a keen interest in Theoretical Computer Science.",
+    "profileAdditionalDetails": [
+        {
+            "link": "",
+            "label": "",
+            "customProperties": {}
+        }
+    ],
+    "education": [
+        {
+            "batch": "2014-2015",
+            "degree": "AISSE (CBSE/Class 10)",
+            "institute": "South Point School, Guwahati",
+            "stream": "General Studies"
+        }
+    ],
+    "social": [
+        {
+            "link": "https://www.linkedin.com/in/tanmoysg/",
+            "service": "LinkedIn",
+            "username": "@tanmoysg",
+            "socialIcon": "",
+            "customProperties": {}
+        }
+    ]
+}

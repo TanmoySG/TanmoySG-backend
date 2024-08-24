@@ -1,0 +1,236 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Generated schema for Root",
+    "type": "object",
+    "properties": {
+        "profileKey": {
+            "type": "string"
+        },
+        "profileSpotlight": {
+            "type": "object",
+            "properties": {
+                "currentLoc": {
+                    "type": "string"
+                },
+                "currentOrg": {
+                    "type": "string"
+                },
+                "currentRole": {
+                    "type": "string"
+                },
+                "primaryMail": {
+                    "type": "string"
+                },
+                "primaryPhone": {
+                    "type": "string"
+                },
+                "profileIntro": {
+                    "type": "string"
+                },
+                "blogLink": {
+                    "type": "string"
+                },
+                "blogText": {
+                    "type": "string"
+                },
+                "museQuote": {
+                    "type": "string"
+                },
+                "quoteLink": {
+                    "type": "string"
+                },
+                "playlistTitle": {
+                    "type": "string"
+                },
+                "playlistLink": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "currentLoc",
+                "currentOrg",
+                "currentRole",
+                "primaryMail",
+                "profileIntro",
+                "blogLink",
+                "blogText"
+            ]
+        },
+        "education": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "activities": {
+                        "type": "string"
+                    },
+                    "achievements": {
+                        "type": "string"
+                    },
+                    "batch": {
+                        "type": "string"
+                    },
+                    "coursework": {
+                        "type": "string"
+                    },
+                    "degree": {
+                        "type": "string"
+                    },
+                    "grades": {
+                        "type": "string"
+                    },
+                    "institute": {
+                        "type": "string"
+                    },
+                    "stream": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "batch",
+                    "degree",
+                    "institute",
+                    "stream"
+                ]
+            }
+        },
+        "skills": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "skill": {
+                        "type": "string"
+                    },
+                    "expertise": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "skill",
+                    "expertise",
+                    "type"
+                ]
+            }
+        },
+        "experience": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "certlink": {},
+                    "company": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "string"
+                    },
+                    "domain": {
+                        "type": "string"
+                    },
+                    "duration": {
+                        "type": "string"
+                    },
+                    "startDate": {
+                        "type": "string"
+                    },
+                    "endDate": {
+                        "type": "string"
+                    },
+                    "isCurrent": {
+                        "type": "boolean"
+                    },
+                    "role": {
+                        "type": "string"
+                    },
+                    "displayPriority": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "company",
+                    "details",
+                    "role",
+                    "displayPriority"
+                ]
+            }
+        },
+        "social": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "link": {
+                        "type": "string"
+                    },
+                    "service": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "link",
+                    "service",
+                    "username"
+                ]
+            }
+        },
+        "project": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "articlelink": {
+                        "type": "string"
+                    },
+                    "codelink": {
+                        "type": "string"
+                    },
+                    "demolink": {
+                        "type": "string"
+                    },
+                    "details": {
+                        "type": "string"
+                    },
+                    "displayPriority": {
+                        "type": "number"
+                    },
+                    "domain": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "techStack": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "codelink",
+                    "details",
+                    "displayPriority",
+                    "domain",
+                    "name",
+                    "techStack"
+                ]
+            }
+        }
+    },
+    "required": [
+        "profileKey",
+        "profileSpotlight",
+        "education",
+        "skills",
+        "experience",
+        "social",
+        "project"
+    ]
+}
