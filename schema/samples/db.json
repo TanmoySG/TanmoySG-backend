@@ -7,56 +7,53 @@
       "experience_v0_beta": {
         "data": {},
         "metadata": {
-          "created_at": 1724531611,
-          "updated_at": 1724531611
+          "created_at": 1724532839,
+          "updated_at": 1724532839
         },
         "schema": {
           "additionalProperties": false,
-          "items": {
-            "properties": {
-              "customProperties": {
-                "additionalProperties": true,
-                "type": "object"
-              },
-              "description": {
-                "type": "string"
-              },
-              "displayPriority": {
-                "type": "number"
-              },
-              "endDate": {
-                "type": "string"
-              },
-              "isCurrent": {
-                "type": "boolean"
-              },
-              "organization": {
-                "type": "string"
-              },
-              "role": {
-                "type": "string"
-              },
-              "startDate": {
-                "type": "string"
-              }
+          "properties": {
+            "customProperties": {
+              "additionalProperties": true,
+              "type": "object"
             },
-            "required": [
-              "organization",
-              "description",
-              "role",
-              "displayPriority"
-            ],
-            "type": "object"
+            "description": {
+              "type": "string"
+            },
+            "displayPriority": {
+              "type": "number"
+            },
+            "endDate": {
+              "type": "string"
+            },
+            "isCurrent": {
+              "type": "boolean"
+            },
+            "organization": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string"
+            },
+            "startDate": {
+              "type": "string"
+            }
           },
-          "type": "array"
+          "required": [
+            "organization",
+            "description",
+            "role",
+            "displayPriority"
+          ],
+          "type": "object"
         },
         "primaryKey": "recordId"
       },
       "messages_v0_beta": {
         "data": {},
         "metadata": {
-          "created_at": 1724531612,
-          "updated_at": 1724531612
+          "created_at": 1724532840,
+          "updated_at": 1724532840
         },
         "schema": {
           "additionalProperties": false,
@@ -104,8 +101,8 @@
       "profile_v0_beta": {
         "data": {},
         "metadata": {
-          "created_at": 1724531612,
-          "updated_at": 1724531612
+          "created_at": 1724532840,
+          "updated_at": 1724532840
         },
         "schema": {
           "additionalProperties": false,
@@ -246,98 +243,92 @@
       "projects_v0_beta": {
         "data": {},
         "metadata": {
-          "created_at": 1724531613,
-          "updated_at": 1724531613
+          "created_at": 1724532841,
+          "updated_at": 1724532841
         },
         "schema": {
           "additionalProperties": false,
-          "items": {
-            "properties": {
-              "additionalLink": {
-                "type": "string"
-              },
-              "codeLink": {
-                "type": "string"
-              },
-              "customProperties": {
-                "additionalProperties": true,
-                "type": "object"
-              },
-              "demoLink": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "displayPriority": {
-                "type": "number"
-              },
-              "domain": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "techStack": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              }
+          "properties": {
+            "additionalLink": {
+              "type": "string"
             },
-            "required": [
-              "codelink",
-              "description",
-              "displayPriority",
-              "domain",
-              "name",
-              "techStack"
-            ],
-            "type": "object"
+            "codeLink": {
+              "type": "string"
+            },
+            "customProperties": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "demoLink": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "displayPriority": {
+              "type": "number"
+            },
+            "domain": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "techStack": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
+          "required": [
+            "codelink",
+            "description",
+            "displayPriority",
+            "domain",
+            "name",
+            "techStack"
+          ],
+          "type": "object"
         },
-        "primaryKey": "recordId"
+        "primaryKey": "name"
       },
       "skills_v0_beta": {
         "data": {},
         "metadata": {
-          "created_at": 1724531613,
-          "updated_at": 1724531613
+          "created_at": 1724532841,
+          "updated_at": 1724532841
         },
         "schema": {
           "additionalProperties": false,
-          "items": {
-            "properties": {
-              "customProperties": {
-                "additionalProperties": true,
-                "type": "object"
-              },
-              "expertise": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
-              }
+          "properties": {
+            "customProperties": {
+              "additionalProperties": true,
+              "type": "object"
             },
-            "required": [
-              "name",
-              "expertise",
-              "type"
-            ],
-            "type": "object"
+            "expertise": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
           },
-          "type": "array"
+          "required": [
+            "name",
+            "expertise",
+            "type"
+          ],
+          "type": "object"
         },
-        "primaryKey": "recordId"
+        "primaryKey": "name"
       }
     },
     "metadata": {
-      "created_at": 1724531513,
-      "updated_at": 1724531613
+      "created_at": 1724532835,
+      "updated_at": 1724532841
     }
   },
   "response": {
@@ -345,56 +336,53 @@
       "experience_v0_beta": {
         "data": {},
         "metadata": {
-          "created_at": 1724531611,
-          "updated_at": 1724531611
+          "created_at": 1724532839,
+          "updated_at": 1724532839
         },
         "schema": {
           "additionalProperties": false,
-          "items": {
-            "properties": {
-              "customProperties": {
-                "additionalProperties": true,
-                "type": "object"
-              },
-              "description": {
-                "type": "string"
-              },
-              "displayPriority": {
-                "type": "number"
-              },
-              "endDate": {
-                "type": "string"
-              },
-              "isCurrent": {
-                "type": "boolean"
-              },
-              "organization": {
-                "type": "string"
-              },
-              "role": {
-                "type": "string"
-              },
-              "startDate": {
-                "type": "string"
-              }
+          "properties": {
+            "customProperties": {
+              "additionalProperties": true,
+              "type": "object"
             },
-            "required": [
-              "organization",
-              "description",
-              "role",
-              "displayPriority"
-            ],
-            "type": "object"
+            "description": {
+              "type": "string"
+            },
+            "displayPriority": {
+              "type": "number"
+            },
+            "endDate": {
+              "type": "string"
+            },
+            "isCurrent": {
+              "type": "boolean"
+            },
+            "organization": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string"
+            },
+            "startDate": {
+              "type": "string"
+            }
           },
-          "type": "array"
+          "required": [
+            "organization",
+            "description",
+            "role",
+            "displayPriority"
+          ],
+          "type": "object"
         },
         "primaryKey": "recordId"
       },
       "messages_v0_beta": {
         "data": {},
         "metadata": {
-          "created_at": 1724531612,
-          "updated_at": 1724531612
+          "created_at": 1724532840,
+          "updated_at": 1724532840
         },
         "schema": {
           "additionalProperties": false,
@@ -442,8 +430,8 @@
       "profile_v0_beta": {
         "data": {},
         "metadata": {
-          "created_at": 1724531612,
-          "updated_at": 1724531612
+          "created_at": 1724532840,
+          "updated_at": 1724532840
         },
         "schema": {
           "additionalProperties": false,
@@ -584,98 +572,92 @@
       "projects_v0_beta": {
         "data": {},
         "metadata": {
-          "created_at": 1724531613,
-          "updated_at": 1724531613
+          "created_at": 1724532841,
+          "updated_at": 1724532841
         },
         "schema": {
           "additionalProperties": false,
-          "items": {
-            "properties": {
-              "additionalLink": {
-                "type": "string"
-              },
-              "codeLink": {
-                "type": "string"
-              },
-              "customProperties": {
-                "additionalProperties": true,
-                "type": "object"
-              },
-              "demoLink": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "displayPriority": {
-                "type": "number"
-              },
-              "domain": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "techStack": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              }
+          "properties": {
+            "additionalLink": {
+              "type": "string"
             },
-            "required": [
-              "codelink",
-              "description",
-              "displayPriority",
-              "domain",
-              "name",
-              "techStack"
-            ],
-            "type": "object"
+            "codeLink": {
+              "type": "string"
+            },
+            "customProperties": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "demoLink": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "displayPriority": {
+              "type": "number"
+            },
+            "domain": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "techStack": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
           },
-          "type": "array"
+          "required": [
+            "codelink",
+            "description",
+            "displayPriority",
+            "domain",
+            "name",
+            "techStack"
+          ],
+          "type": "object"
         },
-        "primaryKey": "recordId"
+        "primaryKey": "name"
       },
       "skills_v0_beta": {
         "data": {},
         "metadata": {
-          "created_at": 1724531613,
-          "updated_at": 1724531613
+          "created_at": 1724532841,
+          "updated_at": 1724532841
         },
         "schema": {
           "additionalProperties": false,
-          "items": {
-            "properties": {
-              "customProperties": {
-                "additionalProperties": true,
-                "type": "object"
-              },
-              "expertise": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
-              }
+          "properties": {
+            "customProperties": {
+              "additionalProperties": true,
+              "type": "object"
             },
-            "required": [
-              "name",
-              "expertise",
-              "type"
-            ],
-            "type": "object"
+            "expertise": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
           },
-          "type": "array"
+          "required": [
+            "name",
+            "expertise",
+            "type"
+          ],
+          "type": "object"
         },
-        "primaryKey": "recordId"
+        "primaryKey": "name"
       }
     },
     "metadata": {
-      "created_at": 1724531513,
-      "updated_at": 1724531613
+      "created_at": 1724532835,
+      "updated_at": 1724532841
     }
   },
   "notices": [

@@ -1,39 +1,36 @@
 {
-    "type": "array",
-    "items": {
-        "type": "object",
-        "properties": {
-            "organization": {
-                "type": "string"
-            },
-            "description": {
-                "type": "string"
-            },
-            "startDate": {
-                "type": "string"
-            },
-            "endDate": {
-                "type": "string"
-            },
-            "isCurrent": {
-                "type": "boolean"
-            },
-            "role": {
-                "type": "string"
-            },
-            "displayPriority": {
-                "type": "number"
-            },
-            "customProperties": {
-                "type": "object",
-                "additionalProperties": true
-            }
+    "type": "object",
+    "properties": {
+        "organization": {
+            "type": "string"
         },
-        "required": [
-            "organization",
-            "description",
-            "role",
-            "displayPriority"
-        ]
-    }
+        "description": {
+            "type": "string"
+        },
+        "startDate": {
+            "type": "string"
+        },
+        "endDate": {
+            "type": "string"
+        },
+        "isCurrent": {
+            "type": "boolean"
+        },
+        "role": {
+            "type": "string"
+        },
+        "displayPriority": {
+            "type": "number"
+        },
+        "customProperties": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "organization",
+        "description",
+        "role",
+        "displayPriority"
+    ]
 }

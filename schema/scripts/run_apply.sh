@@ -1,6 +1,6 @@
 # for each directory find file with extention .collection.json
 
-collections_dir="schema/databases/tsg-on-web_v0_beta/collections"
+collections_dir="schema/databases/tsg-on-web_v0_beta_1/collections"
 
 for dir in $collections_dir/*/     # list directories in the form "/tmp/dirname/"
 do
