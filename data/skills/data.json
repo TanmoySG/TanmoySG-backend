@@ -1,0 +1,110 @@
+[
+    {
+        "name": "Kafka",
+        "expertise": "Beginner",
+        "type": "Development",
+        "customProperties": {}
+    },
+    {
+        "name": "Data Engineering",
+        "expertise": "Beginner",
+        "type": "Development",
+        "customProperties": {}
+    },
+    {
+        "name": "Python-Flask",
+        "expertise": "Proficient",
+        "type": "Development",
+        "customProperties": {}
+    },
+    {
+        "name": "MongoDB",
+        "expertise": "Beginner",
+        "type": "Database",
+        "customProperties": {}
+    },
+    {
+        "name": "Cryptography",
+        "expertise": "Intermediate",
+        "type": "Research",
+        "customProperties": {}
+    },
+    {
+        "name": "GoLang",
+        "expertise": "Beginner",
+        "type": "Coding",
+        "customProperties": {}
+    },
+    {
+        "name": "Shell Programming",
+        "expertise": "Intermediate",
+        "type": "Coding",
+        "customProperties": {}
+    },
+    {
+        "name": "C/C++",
+        "expertise": "Intermediate",
+        "type": "Coding",
+        "customProperties": {}
+    },
+    {
+        "name": "Javascript-NodeJS",
+        "expertise": "Intermediate",
+        "type": "Coding",
+        "customProperties": {}
+    },
+    {
+        "name": "MySQL/SQL",
+        "expertise": "Intermediate",
+        "type": "Database",
+        "customProperties": {}
+    },
+    {
+        "name": "Docker",
+        "expertise": "Beginner",
+        "type": "Development",
+        "customProperties": {}
+    },
+    {
+        "name": "Google Cloud Platform",
+        "expertise": "Beginner",
+        "type": "others",
+        "customProperties": {}
+    },
+    {
+        "name": "Azure",
+        "expertise": "Beginner",
+        "type": "others",
+        "customProperties": {}
+    },
+    {
+        "name": "NodeJS-Express",
+        "expertise": "Beginner",
+        "type": "Development",
+        "customProperties": {}
+    },
+    {
+        "name": "React JS",
+        "expertise": "Intermediate",
+        "type": "Development",
+        "customProperties": {}
+    },
+    {
+        "name": "Python",
+        "expertise": "Proficient",
+        "type": "Coding",
+        "customProperties": {}
+    },
+    {
+        "name": "Kubernetes",
+        "expertise": "Beginner",
+        "type": "Development",
+        "customProperties": {}
+    },
+    {
+        "name": "HTML/CSS",
+        "expertise": "Proficient",
+        "type": "Development",
+        "customProperties": {}
+    }
+]

@@ -1,0 +1,122 @@
+[
+    {
+        "timestamp": 1630990459,
+        "isMessage": true,
+        "isFeedback": false,
+        "status": "Read - Replied",
+        "email": "Purple @Purple.com",
+        "message": "Go_purple",
+        "name": "Purple lover",
+        "rating": "",
+        "customProperties": {}
+    },
+    {
+        "timestamp": 1665861196,
+        "isMessage": true,
+        "isFeedback": false,
+        "status": "New Message - Not Replied",
+        "email": "greatchattha@gmail.com",
+        "message": "Hello sir i came across one of your projects named as \"medical records directory\" but i cannot used it without sql file can you send me the sql file of that project",
+        "name": "hamza",
+        "rating": "",
+        "customProperties": {}
+    },
+    {
+        "timestamp": 1716852283,
+        "isMessage": true,
+        "isFeedback": false,
+        "status": "New Message - Not Replied",
+        "email": "jack",
+        "message": "Hello. Oo",
+        "name": "Hi",
+        "rating": "",
+        "customProperties": {}
+    },
+    {
+        "timestamp": 1622579042,
+        "isMessage": true,
+        "isFeedback": false,
+        "status": "Read - Replied",
+        "email": "",
+        "message": "Love the fact that the website loads so quickly. Great work bro, GREAT WORK.",
+        "name": "Not_Spongebob",
+        "rating": "",
+        "customProperties": {}
+    },
+    {
+        "timestamp": 1687723908,
+        "isMessage": true,
+        "isFeedback": false,
+        "status": "New Message - Not Replied",
+        "email": "tanmoy.srm.backup@gmail.com",
+        "message": "testing123",
+        "name": "test",
+        "rating": "",
+        "customProperties": {}
+    },
+    {
+        "timestamp": 1622656224,
+        "isMessage": false,
+        "isFeedback": true,
+        "status": "",
+        "email": "",
+        "message": "Does it get erased after submitting?",
+        "name": "",
+        "rating": "3",
+        "customProperties": {
+            "userExperienceRating": "5"
+        }
+    },
+    {
+        "timestamp": 1687723908,
+        "isMessage": false,
+        "isFeedback": true,
+        "status": "",
+        "email": "",
+        "message": "test",
+        "name": "",
+        "rating": "5",
+        "customProperties": {
+            "userExperienceRating": "5"
+        }
+    },
+    {
+        "timestamp": 1660891734,
+        "isMessage": false,
+        "isFeedback": true,
+        "status": "",
+        "email": "",
+        "message": "",
+        "name": "",
+        "rating": "5",
+        "customProperties": {
+            "userExperienceRating": "5"
+        }
+    },
+    {
+        "timestamp": 1630516825,
+        "isMessage": false,
+        "isFeedback": true,
+        "status": "",
+        "email": "",
+        "message": "Great work.",
+        "name": "",
+        "rating": "5",
+        "customProperties": {
+            "userExperienceRating": "5"
+        }
+    },
+    {
+        "timestamp": 1630990459,
+        "isMessage": false,
+        "isFeedback": true,
+        "status": "",
+        "email": "",
+        "message": "",
+        "name": "",
+        "rating": "4",
+        "customProperties": {
+            "userExperienceRating": "5"
+        }
+    }
+]
