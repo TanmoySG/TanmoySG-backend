@@ -1,0 +1,46 @@
+{
+    "profileKey": "tanmoysg",
+    "profileDetails": {
+        "fullName": "Tanmoy Sen Gupta",
+        "currentLoc": "Assam, India",
+        "currentOrg": "Optum",
+        "currentRole": "Senior Software Engineer",
+        "primaryMail": "tanmoy",
+        "primaryPhone": "+91 1234567890",
+        "primaryUrl": "https://tanmoysg.com"
+    },
+    "profileIntro": "A passionate software engineer with 3 years of experience.",
+    "profileAdditionalDetails": [],
+    "education": [
+        {
+            "batch": "2017-2021",
+            "degree": "Bachelor of Technology - B.Tech.",
+            "institute": "SRM Institute of Science and Technology",
+            "stream": "Computer Science"
+        }
+    ],
+    "social": [
+        {
+            "link": "https://github.com/tanmoysg",
+            "service": "GitHub",
+            "username": "tanmoysg",
+            "customProperties": {
+                "contributions": 500,
+                "repositories": 35
+            }
+        },
+        {
+            "link": "https://www.linkedin.com/in/tanmoysg",
+            "service": "LinkedIn",
+            "username": "tanmoysg",
+            "customProperties": {}
+        },
+        {
+            "link": "https://twitter.com/tanmoy_sg",
+            "service": "Twitter",
+            "username": "tanmoy_sg",
+            "socialIcon": "twitter-icon.png",
+            "customProperties": {}
+        }
+    ]
+}

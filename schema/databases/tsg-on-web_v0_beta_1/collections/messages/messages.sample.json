@@ -1,0 +1,14 @@
+{
+    "timestamp": "2024-09-13T14:55:00Z",
+    "isMessage": true,
+    "isFeedback": true,
+    "status": "open",
+    "email": "user@example.com",
+    "message": "This is a sample feedback message.",
+    "name": "John Doe",
+    "rating": "5",
+    "customProperties": {
+        "platform": "mobile",
+        "location": "New York"
+    }
+}
