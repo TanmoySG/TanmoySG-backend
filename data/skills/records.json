@@ -113,7 +113,8 @@
         "type": "Development",
         "customProperties": {
             "additional": [
-                "GQL Resolvers"
+                "GQL Resolvers",
+                "DataHub"
             ]
         }
     }
