@@ -1,0 +1,73 @@
+{
+    "profileKey": "tanmoysg",
+    "profileSpotlight": {
+        "currentLoc": "Guwahati",
+        "currentOrg": "Optum",
+        "currentRole": "Software Engineer",
+        "primaryMail": "tanmoysps@gmail.com",
+        "primaryPhone": "",
+        "profileIntro": "I'm a Software Engineer at Optum - a UnitedHealth Group company, working in the Data Platform Project. A Computer Science Engineer by education, I'm skilled at Golang, Python, JavaScript, React, Docker, K8s, among others and have a keen interest in Theoretical Computer Science.",
+        "blogLink": "https://blog.tanmoysg.com/",
+        "blogText": "Read my Blogs",
+        "museQuote": "Cras est Nostrum",
+        "quoteLink": "https://www.latin-is-simple.com/en/vocabulary/phrase/360/",
+        "playlistTitle": "Listen to Muse on Spotify",
+        "playlistLink": "https://open.spotify.com/playlist/6xOvNOC7EUDG12Fw0487QH?si=239f1c0ba70844ec"
+    },
+    "education": [
+        {
+            "activities": "Organizer @ CyberFest 2014 , CBSE Regional Science Exhibition 2014",
+            "achievements": "School Representative to CBSE Regional Science Exhibition 2014",
+            "batch": "2014-2015",
+            "coursework": "Science, Maths, English, Computer Science, Social Science, Bengali",
+            "degree": "AISSE (CBSE/Class 10)",
+            "grades": "83.6%",
+            "institute": "South Point School, Guwahati",
+            "stream": "General Studies"
+        }
+    ],
+    "skills": [
+        {
+            "skill": "C/C++",
+            "expertise": "Intermediate",
+            "type": "Coding"
+        }
+    ],
+    "experience": [
+        {
+            "certlink": null,
+            "company": "Optum - UnitedHealth Group",
+            "details": "Working as a Software Engineer at Optum - a UnitedHealth Group company, in the Data Movement Team. Currently working on the GoLang, Docker, Kubernetes & Azure Stack.",
+            "domain": "Software Engineering",
+            "duration": "Present",
+            "period": "August 2021",
+            "role": "Software Engineer",
+            "worklink": null,
+            "displayPriority": 1
+        }
+    ],
+    "social": [
+        {
+            "link": "https://www.linkedin.com/in/tanmoysg/",
+            "service": "LinkedIn",
+            "username": "@tanmoysg"
+        }
+    ],
+    "project": [
+        {
+            "articlelink": "https://dev.to/tanmoysg/wunderdb-a-pet-database-3dmk",
+            "codelink": "https://github.com/TanmoySG/wunderDB",
+            "demolink": "http://wdb.tanmoysg.com/",
+            "details": "A micro JSON-based Data Store inspired by MongoDB.",
+            "displayPriority": 5,
+            "domain": "Data Storage",
+            "name": "wunderDB",
+            "stack": [
+                "Go",
+                "Makefile",
+                "Dockerfile",
+                "Shell"
+            ]
+        }
+    ]
+}

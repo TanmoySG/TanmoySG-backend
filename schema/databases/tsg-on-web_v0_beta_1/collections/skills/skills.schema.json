@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "expertise": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string"
+        },
+        "customProperties": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "name",
+        "expertise",
+        "type"
+    ]
+}

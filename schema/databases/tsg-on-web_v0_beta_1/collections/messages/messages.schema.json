@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "timestamp": {
+            "type": "string"
+        },
+        "isMessage": {
+            "type": "boolean"
+        },
+        "isFeedback": {
+            "type": "boolean"
+        },
+        "status": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string"
+        },
+        "message": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "rating": {
+            "type": "string"
+        },
+        "customProperties": {
+            "type": "object",
+            "properties": {},
+            "required": []
+        }
+    },
+    "required": [
+        "timestamp",
+        "isMessage",
+        "isFeedback",
+        "message"
+    ]
+}

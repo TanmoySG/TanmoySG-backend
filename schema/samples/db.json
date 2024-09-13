@@ -1,0 +1,666 @@
+{
+  "action": "readDatabase",
+  "status": "success",
+  "error": {},
+  "data": {
+    "collections": {
+      "experience_v0_beta": {
+        "data": {},
+        "metadata": {
+          "created_at": 1724532839,
+          "updated_at": 1724532839
+        },
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "customProperties": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "description": {
+              "type": "string"
+            },
+            "displayPriority": {
+              "type": "number"
+            },
+            "endDate": {
+              "type": "string"
+            },
+            "isCurrent": {
+              "type": "boolean"
+            },
+            "organization": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string"
+            },
+            "startDate": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "organization",
+            "description",
+            "role",
+            "displayPriority"
+          ],
+          "type": "object"
+        },
+        "primaryKey": "recordId"
+      },
+      "messages_v0_beta": {
+        "data": {},
+        "metadata": {
+          "created_at": 1724532840,
+          "updated_at": 1724532840
+        },
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "customProperties": {
+              "properties": {},
+              "required": [],
+              "type": "object"
+            },
+            "email": {
+              "type": "string"
+            },
+            "isFeedback": {
+              "type": "boolean"
+            },
+            "isMessage": {
+              "type": "boolean"
+            },
+            "message": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "timestamp",
+            "isMessage",
+            "isFeedback",
+            "message"
+          ],
+          "type": "object"
+        },
+        "primaryKey": "recordId"
+      },
+      "profile_v0_beta": {
+        "data": {},
+        "metadata": {
+          "created_at": 1724532840,
+          "updated_at": 1724532840
+        },
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "education": {
+              "items": {
+                "properties": {
+                  "batch": {
+                    "type": "string"
+                  },
+                  "degree": {
+                    "type": "string"
+                  },
+                  "institute": {
+                    "type": "string"
+                  },
+                  "stream": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "batch",
+                  "degree",
+                  "institute",
+                  "stream"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "profileAdditionalDetails": {
+              "items": {
+                "properties": {
+                  "customProperties": {
+                    "properties": {},
+                    "required": [],
+                    "type": "object"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "link",
+                  "label"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "profileDetails": {
+              "properties": {
+                "currentLoc": {
+                  "type": "string"
+                },
+                "currentOrg": {
+                  "type": "string"
+                },
+                "currentRole": {
+                  "type": "string"
+                },
+                "fullName": {
+                  "type": "string"
+                },
+                "primaryMail": {
+                  "type": "string"
+                },
+                "primaryPhone": {
+                  "type": "string"
+                },
+                "primaryUrl": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "fullName",
+                "currentLoc",
+                "currentOrg",
+                "currentRole",
+                "primaryMail",
+                "primaryPhone",
+                "primaryUrl"
+              ],
+              "type": "object"
+            },
+            "profileIntro": {
+              "type": "string"
+            },
+            "profileKey": {
+              "type": "string"
+            },
+            "social": {
+              "items": {
+                "properties": {
+                  "customProperties": {
+                    "properties": {},
+                    "required": [],
+                    "type": "object"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "service": {
+                    "type": "string"
+                  },
+                  "socialIcon": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "link",
+                  "service",
+                  "username"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "profileKey",
+            "profileDetails",
+            "profileIntro",
+            "profileAdditionalDetails",
+            "education",
+            "social"
+          ],
+          "type": "object"
+        },
+        "primaryKey": "recordId"
+      },
+      "projects_v0_beta": {
+        "data": {},
+        "metadata": {
+          "created_at": 1724532841,
+          "updated_at": 1724532841
+        },
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "additionalLink": {
+              "type": "string"
+            },
+            "codeLink": {
+              "type": "string"
+            },
+            "customProperties": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "demoLink": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "displayPriority": {
+              "type": "number"
+            },
+            "domain": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "techStack": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "codelink",
+            "description",
+            "displayPriority",
+            "domain",
+            "name",
+            "techStack"
+          ],
+          "type": "object"
+        },
+        "primaryKey": "name"
+      },
+      "skills_v0_beta": {
+        "data": {},
+        "metadata": {
+          "created_at": 1724532841,
+          "updated_at": 1724532841
+        },
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "customProperties": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "expertise": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "expertise",
+            "type"
+          ],
+          "type": "object"
+        },
+        "primaryKey": "name"
+      }
+    },
+    "metadata": {
+      "created_at": 1724532835,
+      "updated_at": 1724532841
+    }
+  },
+  "response": {
+    "collections": {
+      "experience_v0_beta": {
+        "data": {},
+        "metadata": {
+          "created_at": 1724532839,
+          "updated_at": 1724532839
+        },
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "customProperties": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "description": {
+              "type": "string"
+            },
+            "displayPriority": {
+              "type": "number"
+            },
+            "endDate": {
+              "type": "string"
+            },
+            "isCurrent": {
+              "type": "boolean"
+            },
+            "organization": {
+              "type": "string"
+            },
+            "role": {
+              "type": "string"
+            },
+            "startDate": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "organization",
+            "description",
+            "role",
+            "displayPriority"
+          ],
+          "type": "object"
+        },
+        "primaryKey": "recordId"
+      },
+      "messages_v0_beta": {
+        "data": {},
+        "metadata": {
+          "created_at": 1724532840,
+          "updated_at": 1724532840
+        },
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "customProperties": {
+              "properties": {},
+              "required": [],
+              "type": "object"
+            },
+            "email": {
+              "type": "string"
+            },
+            "isFeedback": {
+              "type": "boolean"
+            },
+            "isMessage": {
+              "type": "boolean"
+            },
+            "message": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "timestamp",
+            "isMessage",
+            "isFeedback",
+            "message"
+          ],
+          "type": "object"
+        },
+        "primaryKey": "recordId"
+      },
+      "profile_v0_beta": {
+        "data": {},
+        "metadata": {
+          "created_at": 1724532840,
+          "updated_at": 1724532840
+        },
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "education": {
+              "items": {
+                "properties": {
+                  "batch": {
+                    "type": "string"
+                  },
+                  "degree": {
+                    "type": "string"
+                  },
+                  "institute": {
+                    "type": "string"
+                  },
+                  "stream": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "batch",
+                  "degree",
+                  "institute",
+                  "stream"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "profileAdditionalDetails": {
+              "items": {
+                "properties": {
+                  "customProperties": {
+                    "properties": {},
+                    "required": [],
+                    "type": "object"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "link",
+                  "label"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "profileDetails": {
+              "properties": {
+                "currentLoc": {
+                  "type": "string"
+                },
+                "currentOrg": {
+                  "type": "string"
+                },
+                "currentRole": {
+                  "type": "string"
+                },
+                "fullName": {
+                  "type": "string"
+                },
+                "primaryMail": {
+                  "type": "string"
+                },
+                "primaryPhone": {
+                  "type": "string"
+                },
+                "primaryUrl": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "fullName",
+                "currentLoc",
+                "currentOrg",
+                "currentRole",
+                "primaryMail",
+                "primaryPhone",
+                "primaryUrl"
+              ],
+              "type": "object"
+            },
+            "profileIntro": {
+              "type": "string"
+            },
+            "profileKey": {
+              "type": "string"
+            },
+            "social": {
+              "items": {
+                "properties": {
+                  "customProperties": {
+                    "properties": {},
+                    "required": [],
+                    "type": "object"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "service": {
+                    "type": "string"
+                  },
+                  "socialIcon": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "link",
+                  "service",
+                  "username"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "profileKey",
+            "profileDetails",
+            "profileIntro",
+            "profileAdditionalDetails",
+            "education",
+            "social"
+          ],
+          "type": "object"
+        },
+        "primaryKey": "recordId"
+      },
+      "projects_v0_beta": {
+        "data": {},
+        "metadata": {
+          "created_at": 1724532841,
+          "updated_at": 1724532841
+        },
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "additionalLink": {
+              "type": "string"
+            },
+            "codeLink": {
+              "type": "string"
+            },
+            "customProperties": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "demoLink": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "displayPriority": {
+              "type": "number"
+            },
+            "domain": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "techStack": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "codelink",
+            "description",
+            "displayPriority",
+            "domain",
+            "name",
+            "techStack"
+          ],
+          "type": "object"
+        },
+        "primaryKey": "name"
+      },
+      "skills_v0_beta": {
+        "data": {},
+        "metadata": {
+          "created_at": 1724532841,
+          "updated_at": 1724532841
+        },
+        "schema": {
+          "additionalProperties": false,
+          "properties": {
+            "customProperties": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "expertise": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "expertise",
+            "type"
+          ],
+          "type": "object"
+        },
+        "primaryKey": "name"
+      }
+    },
+    "metadata": {
+      "created_at": 1724532835,
+      "updated_at": 1724532841
+    }
+  },
+  "notices": [
+    "[Important] The `data` field in API Response will be deprecated and replaced with the `response` field. The data field is still present in this version of wdb-server for backward compatibility, and will be phased out in future version. Please ensure all your dependant systems move to use the `response` field instead of `data`. Refer this for more: https://github.com/TanmoySG/wunderDB/issues/121"
+  ]
+}

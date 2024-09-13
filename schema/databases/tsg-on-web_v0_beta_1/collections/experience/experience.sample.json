@@ -1,0 +1,27 @@
+{
+    "uniqueId": "optum21",
+    "organization": "Optum",
+    "description": "Building Healthcare Data Platform, a Data Mesh architecture based platform to cater UHG's vast data needs. Primarily working on Data Access Provisioning, Catalog and Experience",
+    "startDate": "2021-07-26",
+    "endDate": "",
+    "isCurrent": true,
+    "role": "Senior Software Engineer",
+    "displayPriority": 1,
+    "customProperties": {
+        "location": {
+            "city": "Hyderabad",
+            "state": "Telangana",
+            "country": "India"
+        },
+        "department": "Chief Data Office",
+        "projectCount": 3,
+        "previousRoles": [
+            "Software Engineer"
+        ],
+        "projects": [
+            "Data Access Provisioning",
+            "Data Catalog",
+            "Data Movement"
+        ]
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "uniqueId": {
+            "type": "string"
+        },
+        "organization": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "startDate": {
+            "type": "string"
+        },
+        "endDate": {
+            "type": "string"
+        },
+        "isCurrent": {
+            "type": "boolean"
+        },
+        "role": {
+            "type": "string"
+        },
+        "displayPriority": {
+            "type": "number"
+        },
+        "customProperties": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "required": [
+        "uniqueId",
+        "organization",
+        "description",
+        "role",
+        "displayPriority"
+    ]
+}
