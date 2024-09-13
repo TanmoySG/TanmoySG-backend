@@ -1,4 +1,5 @@
 {
     "database": "tsg-on-web_v0_beta_1",
-    "collection": "messages_v0_beta"
+    "collection": "messages_v0_beta",
+    "exempt": true
 }
