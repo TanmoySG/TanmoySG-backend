@@ -1,0 +1,25 @@
+name: Sync Data
+
+on:
+  push:
+    branches: ['main']
+    paths: ['data/*/records.json']
+
+jobs:	
+  build:	
+    runs-on: ubuntu-latest	
+    steps:	
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Set up Python	
+        uses: actions/setup-python@v5
+        with:
+            python-version: '3.11' 
+      - name: Build and Run	
+        env:	
+            BASE_URL: ${{ secrets.BASE_URL }}
+            WDB_DATABASE: ${{ secrets.WDB_DATABASE }}	
+            WDB_COLLECTION: ${{ secrets.WDB_COLLECTION }}	
+        run: |	
+            cd ${GITHUB_WORKSPACE}/push
+            python3 app.py
