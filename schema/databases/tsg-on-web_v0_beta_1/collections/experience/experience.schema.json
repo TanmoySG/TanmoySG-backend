@@ -1,6 +1,9 @@
 {
     "type": "object",
     "properties": {
+        "uniqueId": {
+            "type": "string"
+        },
         "organization": {
             "type": "string"
         },
@@ -28,6 +31,7 @@
         }
     },
     "required": [
+        "uniqueId",
         "organization",
         "description",
         "role",
