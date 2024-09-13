@@ -18,8 +18,8 @@ jobs:
       - name: Build and Run	
         env:	
             BASE_URL: ${{ secrets.BASE_URL }}
-            WDB_DATABASE: ${{ secrets.WDB_DATABASE }}	
-            WDB_COLLECTION: ${{ secrets.WDB_COLLECTION }}	
+            WDB_USERNAME: ${{ secrets.WDB_USERNAME }}	
+            WDB_PASSWORD: ${{ secrets.WDB_PASSWORD }}	
         run: |	
             cd ${GITHUB_WORKSPACE}/push
             pip install -r requirements.txt
