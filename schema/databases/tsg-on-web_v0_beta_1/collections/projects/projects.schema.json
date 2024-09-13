@@ -34,7 +34,7 @@
         }
     },
     "required": [
-        "codelink",
+        "codeLink",
         "description",
         "displayPriority",
         "domain",
