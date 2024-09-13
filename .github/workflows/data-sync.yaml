@@ -21,5 +21,6 @@ jobs:
             WDB_DATABASE: ${{ secrets.WDB_DATABASE }}	
             WDB_COLLECTION: ${{ secrets.WDB_COLLECTION }}	
         run: |	
+            pip install -r requirements.txt
             cd ${GITHUB_WORKSPACE}/push
             python3 app.py
