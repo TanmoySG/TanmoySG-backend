@@ -9,9 +9,11 @@ Personal website data is mostly unchanging and not dynamic. For this, data like 
 We've migrated from the older data design where each domain had a collections, eg. different collections for social-media profiles, education, profile highlights, etc, to a newer, consolidated data design where data that wont change is clubbed into a single collection, i.e clubbed social-media profiles, education, profile highlights into a single schema and collection.
 
 Older Database Design
+
 ![alt text](./old-data-design.png)
 
 New Database Design
+
 ![alt text](./new-data-design.png)
 
 Note how collections like `education`, `profileSpotlight`, `social` have been moved to a single collection [`profile`](../schema/databases/tsg-on-web_v0_beta_1/collections/profile/profile.sample.json).
