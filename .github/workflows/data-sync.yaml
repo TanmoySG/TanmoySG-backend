@@ -1,6 +1,12 @@
 name: Sync Data
 
 on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        type: boolean
+        description: 'Confirm Manual Trigger for Sync Job'
+        required: true
   push:
     branches: ['main']
     paths: ['data/*/records.json']
@@ -22,9 +28,15 @@ jobs:
             WDB_PASSWORD: ${{ secrets.WDB_PASSWORD }}	
         run: |	
             echo '### Sync Summary 📋' >> $GITHUB_STEP_SUMMARY
+            trigger=$(echo ${{ github.event_name }})
+            if [ $trigger == "workflow_dispatch" ]; then
+              echo "💡 Trigger: Manual" >> $GITHUB_STEP_SUMMARY
+            else if [ $trigger == "push" ]; then
+              echo "💡 Trigger: Record Updated" >> $GITHUB_STEP_SUMMARY
+            fi
             cd ${GITHUB_WORKSPACE}/push
             pip install -r requirements.txt
-            echo "Sync Run Logs" >> $GITHUB_STEP_SUMMARY
+            echo "🪵 Sync Run Logs" >> $GITHUB_STEP_SUMMARY
             echo '```' >> $GITHUB_STEP_SUMMARY
             python3 app.py
             cat push.log 
