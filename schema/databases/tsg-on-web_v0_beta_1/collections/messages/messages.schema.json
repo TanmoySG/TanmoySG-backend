@@ -2,7 +2,7 @@
     "type": "object",
     "properties": {
         "timestamp": {
-            "type": "string"
+            "type": "number"
         },
         "isMessage": {
             "type": "boolean"
@@ -23,7 +23,7 @@
             "type": "string"
         },
         "rating": {
-            "type": "string"
+            "type": "integer"
         },
         "customProperties": {
             "type": "object",
