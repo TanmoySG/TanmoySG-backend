@@ -31,7 +31,7 @@ jobs:
             trigger=$(echo ${{ github.event_name }})
             if [ $trigger == "workflow_dispatch" ]; then
               echo "💡 Trigger: Manual" >> $GITHUB_STEP_SUMMARY
-            else if [ $trigger == "push" ]; then
+            elif [ $trigger == "push" ]; then
               echo "💡 Trigger: Record Updated" >> $GITHUB_STEP_SUMMARY
             fi
             cd ${GITHUB_WORKSPACE}/push
