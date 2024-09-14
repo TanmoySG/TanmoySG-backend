@@ -14,7 +14,8 @@ logging.basicConfig(
     level=logging.INFO,
     format=log_format,
     datefmt="%Y-%m-%d %H:%M:%S",
-    handlers=[logging.StreamHandler()],
+    filename="push.log",
+    filemode="a",
 )
 
 logger = logging.getLogger("CustomLogger")
@@ -70,7 +71,13 @@ for dir in os.listdir(data_dir_path):
         EXEMPTED_SCHEMA = collection_config["exempt"]
 
     if EXEMPTED_SCHEMA:
-        print(f"Skipping {COLLECTION_NAME} as it is exempted")
+        extra_fields = {
+            "action": "skip",
+            "primaryKey": "",
+            "primaryKeyValue": "",
+            "collection": COLLECTION_NAME,
+        }
+        logger.info(f"Skipping {COLLECTION_NAME} as it is exempted", extra=extra_fields)
         continue
 
     with open(f"{data_dir_path}/{dir}/records.json") as f:
@@ -113,8 +120,8 @@ for dir in os.listdir(data_dir_path):
                 record[primary_key_field],
             )
             action = "patch"
-            
-        # log the response 
+
+        # log the response
         extra_fields = {
             "action": action,
             "primaryKey": field,
