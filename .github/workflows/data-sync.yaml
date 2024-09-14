@@ -1,6 +1,12 @@
 name: Sync Data
 
 on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        type: boolean
+        description: 'Confirm Manual Trigger for Sync Job'
+        required: true
   push:
     branches: ['main']
     paths: ['data/*/records.json']
