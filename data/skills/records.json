@@ -111,10 +111,6 @@
         "name": "Java",
         "expertise": "Beginner",
         "type": "Development",
-        "customProperties": {
-            "additional": [
-                "GQL Resolver"
-            ]
-        }
+        "customProperties": {}
     }
 ]
