@@ -6,7 +6,7 @@ on:
     paths: ['data/*/records.json']
 
 jobs:	
-  build:	
+  sync:	
     runs-on: ubuntu-latest	
     steps:	
       - name: Checkout Repository
@@ -21,6 +21,11 @@ jobs:
             WDB_USERNAME: ${{ secrets.WDB_USERNAME }}	
             WDB_PASSWORD: ${{ secrets.WDB_PASSWORD }}	
         run: |	
+            echo '### Sync Summary 📋' >> $GITHUB_STEP_SUMMARY
             cd ${GITHUB_WORKSPACE}/push
             pip install -r requirements.txt
-            python3 app.py
+            echo "Sync Run Logs" >> $GITHUB_STEP_SUMMARY
+            echo "```" >> $GITHUB_STEP_SUMMARY
+            python3 app.py 
+            echo "```" >> $GITHUB_STEP_SUMMARY
+            echo "✅ Sync Run Completed." >> $GITHUB_STEP_SUMMARY
