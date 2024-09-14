@@ -30,9 +30,9 @@ jobs:
             echo '### Sync Summary 📋' >> $GITHUB_STEP_SUMMARY
             trigger=$(echo ${{ github.event_name }})
             if [ $trigger == "workflow_dispatch" ]; then
-              echo "💡 Trigger: `Manual`" >> $GITHUB_STEP_SUMMARY
+              echo '💡 Trigger: `Manual`' >> $GITHUB_STEP_SUMMARY
             elif [ $trigger == "push" ]; then
-              echo "💡 Trigger: `Record Updated`" >> $GITHUB_STEP_SUMMARY
+              echo '💡 Trigger: `Record(s) Updated`' >> $GITHUB_STEP_SUMMARY
             fi
             cd ${GITHUB_WORKSPACE}/push
             pip install -r requirements.txt
