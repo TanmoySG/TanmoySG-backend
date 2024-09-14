@@ -1,10 +1,23 @@
 import json
+import logging
 import os
 import requests
 
 BASE_URL = os.environ.get("BASE_URL")
 WDB_USERNAME = os.environ.get("WDB_USERNAME")
 WDB_PASSWORD = os.environ.get("WDB_PASSWORD")
+
+log_format = "%(asctime)s | Action: %(action)-10s | PrimaryKey: %(primaryKey)-10s | PrimaryKeyValue: %(primaryKeyValue)-30s | Collection: %(collection)-20s | Response: %(message)s"
+
+# Configure the logger
+logging.basicConfig(
+    level=logging.INFO,
+    format=log_format,
+    datefmt="%Y-%m-%d %H:%M:%S",
+    handlers=[logging.StreamHandler()],
+)
+
+logger = logging.getLogger("CustomLogger")
 
 
 def patch(
@@ -76,6 +89,12 @@ for dir in os.listdir(data_dir_path):
     primary_key_field = response_json["response"]["primaryKey"]
 
     for record in RECORDS_ARRAY:
+        action: str
+        res: any
+
+        field: str = primary_key_field
+        field_value: str = record[primary_key_field]
+
         if record[primary_key_field] not in collection_records:
             res = create(
                 BASE_URL,
@@ -83,9 +102,7 @@ for dir in os.listdir(data_dir_path):
                 COLLECTION_NAME,
                 record,
             )
-            print(
-                f"Creating new record for {primary_key_field}={record[primary_key_field]} in {COLLECTION_NAME}. Response: {res}"
-            )
+            action = "create"
         else:
             res = patch(
                 BASE_URL,
@@ -95,6 +112,13 @@ for dir in os.listdir(data_dir_path):
                 primary_key_field,
                 record[primary_key_field],
             )
-            print(
-                f"Updating existing record for {primary_key_field}={record[primary_key_field]} in {COLLECTION_NAME}. Response: {res}"
-            )
+            action = "patch"
+            
+        # log the response 
+        extra_fields = {
+            "action": action,
+            "primaryKey": field,
+            "primaryKeyValue": field_value,
+            "collection": COLLECTION_NAME,
+        }
+        logger.info(res, extra=extra_fields)
