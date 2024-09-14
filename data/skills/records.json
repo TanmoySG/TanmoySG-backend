@@ -111,10 +111,6 @@
         "name": "Java",
         "expertise": "Beginner",
         "type": "Coding",
-        "customProperties": {
-            "services": [
-                "GraphQL Resolvers"
-            ]
-        }
+        "customProperties": {}
     }
 ]
