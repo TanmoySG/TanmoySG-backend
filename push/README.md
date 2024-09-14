@@ -1,18 +1,20 @@
 # Updating Data for tanmoysg.com to wunderDb Collections using GitOps
 
-This is the architectural design and thoughts behind this application.
+This document explains the architectural design and thought process behind data management using **GitOps**.
 
 ## Preface
 
-Personal website data is mostly unchanging and not dynamic. For this, data like social media accounts, profile details, etc need not be divided into domains and put into different databases or collections or tables.
+The personal website’s data (such as social media accounts, profile details, etc.) is mostly static and unchanging. Therefore, maintaining a highly segregated database structure is unnecessary. We have migrated from an older, domain-separated database design (with different collections for social media profiles, education, profile highlights, etc.) to a consolidated approach where such static data is combined into a single collection.
 
-We've migrated from the older data design where each domain had a collections, eg. different collections for social-media profiles, education, profile highlights, etc, to a newer, consolidated data design where data that wont change is clubbed into a single collection, i.e clubbed social-media profiles, education, profile highlights into a single schema and collection.
+### Comparison of Data Design
 
 | Older Database Design              | New Database Design                |
 | ---------------------------------- | ---------------------------------- |
-| ![alt text](./old-data-design.png) | ![alt text](./new-data-design.png) |
+| ![Old Data Design](./old-data-design.png) | ![New Data Design](./new-data-design.png) |
 
-| Collections (old)                   | Collections (new)                                                                                    |
+### Collections Comparison
+
+| Collections (Old)                   | Collections (New)                                                                                     |
 |-------------------------------------|------------------------------------------------------------------------------------------------------|
 | skills                              | [skills](../schema/databases/tsg-on-web_v0_beta_1/collections/skills/skills.schema.json)             |
 | projects                            | [projects](../schema/databases/tsg-on-web_v0_beta_1/collections/projects/projects.schema.json)       |
@@ -20,33 +22,33 @@ We've migrated from the older data design where each domain had a collections, e
 | messages, feedback                  | [messages](../schema/databases/tsg-on-web_v0_beta_1/collections/messages/messages.schema.json)       |
 | experience                          | [experience](../schema/databases/tsg-on-web_v0_beta_1/collections/experience/experience.schema.json) |
 
-Note how collections like `education`, `profileSpotlight`, `social` have been consolidated into a single schema `profile`, while `messages` and `feedback` have been merged into `messages`.
+Note how collections like `education`, `profileSpotlight`, and `social` have been merged into the new `profile` schema, while `messages` and `feedback` have been consolidated into a single `messages` collection.
 
-## Why Push Data using GitOps
+## Why Use GitOps to Push Data?
 
-The aforementioned data is often static, making them maintainable with JSON files. The data saved in these JSON files are not huge, so maintaining them as objects in a single file is also pretty easy.
+Since this data is mostly static and stored in JSON files, managing the data through Git is straightforward. These JSON files are not large, and maintaining them as single objects is efficient.
 
-That being said, for these data to be available via API calls, we need to have these pushed into [wunderDb](https://github.com/TanmoySG/wunderDB). With wdb maintaining and having data as json is very easy and effortless.
+To make the data available via API calls, it is pushed into [wunderDb](https://github.com/TanmoySG/wunderDB). This setup simplifies the process of managing data in JSON form. The idea is to eliminate the need for manual database updates when files change. GitOps enables automatic data updates whenever there are changes to the JSON files in the repository.
 
-To make is easier, the idea is to remove the requirement of manually creating/ingesting new data or patching existing data when there is any change in the aforementioned JSON files. The only manual process should be to update the JSON files, rest of the things should be automated. Since we're making use of a git repository to maintain these files, it makes sense to use GitOps, i.e when file changes in the repository, GitHub should take care of the ingestion and updation automatically.
+You can learn more about GitOps [here](https://about.gitlab.com/topics/gitops/).
 
-Read More about GitOps [here](https://about.gitlab.com/topics/gitops/).
+## GitOps Architecture
 
-## The GitOps Architecture
+![Data Push Architecture](data-push.drawio.png)
 
-![alt text](data-push.drawio.png)
+- For any change in records a pull request (PR) is raised for the main branch.
+- When the PR is merged, the [`data-sync`](../.github/workflows/data-sync.yaml) workflow is triggered, running only if there are changes to the `/data` directory.
+- Each directory under `/data` corresponds to a collection.
+- The workflow runs a Python script, [`push`](app.py), that checks records in each collection.
+- It updates existing records or creates new ones if they don’t exist in the database.
 
-- When any record changes, a PR is raised with the change to the main branch. Each directory under `/data` corresponds to a collection.
-- When the PR is merged to main, the [`data-sync`](../.github/workflows/data-sync.yaml) workflow runs. The workflow runs only if there is a change in the `/data` directory.
-- The workflow runs an python script called [`push`](app.py).
-- For each collection, i.e directory under `/data` , it gets the records already in the database.
-- If the record already exists it patches the existing data, else create a new record.
+**Note**: Since there are relatively few records, patching all fields saves on computational overhead for field-level comparisons. This tradeoff is acceptable when there are less records.
 
-Note: Since the records are reletively less, performing a patch operation even if nothing changed saves on field level value matching, which otherwise would be a compute intensitve process. This tradeoff is acceptable when there are less records.
+## Workflow Overview
 
-## The Workflow
+The [`data-sync.yaml`](../.github/workflows/data-sync.yaml) configuration defines the steps for syncing data.
 
-The [`data-sync.yaml`](../.github/workflows/data-sync.yaml) workflow configuration defines the steps to be run. This section talks about the steps involved.
+### Workflow Triggers
 
 ```yaml
 name: Sync Data
@@ -63,15 +65,14 @@ on:
     paths: ['data/*/records.json']
 ```
 
-The first section of the YAML file contains the name of the workflow, in this case `Sync Data`. The second sections defines the triggers for running the workflow.
-
-- The `push` trigger defines that the workflow should run when
-  - There is a push in the `main` branch, defined in the `branches` field
-  - And if there is a change in `/data/*/records.json` , i.e if there is a change in any of the records.json files under the directories within `data` directory, defined in the `paths` field.
+- **`push` trigger**: Runs the workflow when:
+  - There’s a push to the `main` branch.
+  - There are changes in `/data/*/records.json` (i.e., records in the `/data` directory).
   - The workflow won't run if BOTH the conditions are not met.
-- In addition to the `push` trigger, sometimes the workflow needs to be run on-demand. The `workflow_dispatch` trigger is for running the workflow manually, i.e without any requirement of updating records.
-  - It expects a confirmation input `confirm` of type boolean.
-  - The workflow runs, when user wants to run is manually. It runs and updates/syncs the records in the `/data` directory.
+
+- **`workflow_dispatch` trigger**: This allows manual triggering of the workflow.
+
+### Job Setup Steps
 
 ```yaml
 jobs: 
@@ -86,12 +87,11 @@ jobs:
             python-version: '3.11'
 ```
 
-The `jobs` section of the workflow file defines the jobs to run.
+- **`runs-on`**: Specifies that the job runs on an Ubuntu runner.
+- **`Checkout Repository`**: Checks out the repository using the action [`actions/checkout@v4`](https://github.com/actions/checkout).
+- **`Set up Python`**: Sets up Python 3.11 on the runner using [`actions/setup-python@v5`](https://github.com/actions/setup-python).
 
-- The `runs-on` field under the job (`sync` in this case) defines the OS/Platform on which these steps should be run, called the `runner`.
-- The first step `Checkout Repository` checksout or loads the repository onto the runner and uses the action[`actions/checkout@v4`](https://github.com/actions/checkout)
-- The second step `Set up Python` uses the [`actions/setup-python@v5`](https://github.com/actions/setup-python) action to setup Python on the runner, the version of python to be installed can be specified in the `with.python-version` field.
-- The actions - `actions/checkout@v4` and `actions/setup-python@v5` are available on GitHub marketplace.
+### Build and Run Step
 
 ```yaml
       - name: Build and Run 
@@ -119,46 +119,42 @@ The `jobs` section of the workflow file defines the jobs to run.
             echo "✅ Sync Run Completed." >> $GITHUB_STEP_SUMMARY
 ```
 
-This is the step where the actual application/python script runs. The step is called `Build and Run`, with a few environment variables - `BASE_URL` , `WDB_USERNAME` and `WDB_PASSWORD`, setup in the `env` section/field. The value of these are fetched from the ["Repository Secrets"](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). The shell instructions to be run are setup/specified in the `run` section.
+- **Environment Variables**: Secrets like `BASE_URL`, `WDB_USERNAME`, and `WDB_PASSWORD` are fetched from the repository secrets.
+- **Summary Logs**: The `echo` commands push a markdown summary to the `STEP SUMMARY` section of the GitHub UI.
+- **Trigger Handling**: Depending on the trigger (manual or push), different messages are displayed in the step summary.
 
-```shell
-echo '### Sync Summary 📋' >> $GITHUB_STEP_SUMMARY
-trigger=$(echo ${{ github.event_name }})
-if [ $trigger == "workflow_dispatch" ]; then
-    echo '💡 Trigger: `Manual`' >> $GITHUB_STEP_SUMMARY
-elif [ $trigger == "push" ]; then
-    echo '💡 Trigger: `Record(s) Updated`' >> $GITHUB_STEP_SUMMARY
-fi
-```
-
-- These steps are pushing a markdown "summary" into the `STEP SUMMARY` section of the output. The `GITHUB_STEP_SUMMARY` contains the step output/summary and anything set/piped/appended to it is displayed in the Step Summary section in the GitHub UI.
-- Different message is pushed to the step summary based on the trigger using the `$trigger == "workflow_dispatch"` checks.
+### Application Execution
 
 ```shell
 cd ${GITHUB_WORKSPACE}/push
 pip install -r requirements.txt
-echo '```' >> $GITHUB_STEP_SUMMARY
-echo "🪵 Sync Run Logs" >> $GITHUB_STEP_SUMMARY
-echo >> $GITHUB_STEP_SUMMARY
+... # commands for step output
 python3 app.py
 cat push.log
 ```
 
-- In the runner, "we" move to the `/push` directory from the repsitory root directory, where the application is stored.
-- The requirements/dependancies, stored in requirements.txt, are installed onto the runner using `pip`, followed by more step summary instructions.
-- The application is run at the end using `python3 app.py`. The application pushes the logs into a log file on the runner - `push.log`.
-- The logs are then displayed on the workflow run logs by `cat`-ing the log file.
+- Navigate to the `/push` directory where the application is located.
+- Install the dependencies from `requirements.txt`.
+- Run the Python script `app.py` to perform the data sync.
+- The logs are saved in `push.log` and displayed in the GitHub workflow run.
+- Push the saved logs into step summary.
+
+### Logs in Step Summary
 
 ```shell
+echo '```' >> $GITHUB_STEP_SUMMARY
+echo "🪵 Sync Run Logs" >> $GITHUB_STEP_SUMMARY
+echo >> $GITHUB_STEP_SUMMARY
+... # python commands
 cat push.log >> $GITHUB_STEP_SUMMARY
 echo '```' >> $GITHUB_STEP_SUMMARY
 echo "✅ Sync Run Completed." >> $GITHUB_STEP_SUMMARY
 ```
 
-- The logs are also pushed into the step summary to be displayed in the GitHub Actions run Summary section.
+- This pushes the logs into the step summary for easy visibility.
 
-![alt text](summary.png)
+![Summary Screenshot](summary.png)
 
-Read more about Step Summary [here](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#adding-a-job-summary).
+Read more about GitHub’s Step Summary feature [here](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#adding-a-job-summary).
 
 PS: I learnt about step summary while working on this workflow! 😄
