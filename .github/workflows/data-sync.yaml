@@ -25,9 +25,9 @@ jobs:
             cd ${GITHUB_WORKSPACE}/push
             pip install -r requirements.txt
             echo "Sync Run Logs" >> $GITHUB_STEP_SUMMARY
-            echo "```" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
             python3 app.py > tmp.txt
             cat tmp.txt 
             cat tmp.txt >> $GITHUB_STEP_SUMMARY
-            echo "```" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
             echo "✅ Sync Run Completed." >> $GITHUB_STEP_SUMMARY
