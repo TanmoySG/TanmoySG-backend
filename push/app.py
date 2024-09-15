@@ -92,7 +92,7 @@ for dir in os.listdir(data_dir_path):
     )
 
     response_json = json.loads(response.text)
-    collection_records = response_json["response"]["records"]
+    collection_records: dict = response_json["response"]["records"]
     primary_key_field = response_json["response"]["primaryKey"]
 
     for record in RECORDS_ARRAY:
@@ -103,23 +103,27 @@ for dir in os.listdir(data_dir_path):
         field_value: str = record[primary_key_field]
 
         if record[primary_key_field] not in collection_records:
+            action = "create"
             res = create(
                 BASE_URL,
                 DATABASE_NAME,
                 COLLECTION_NAME,
                 record,
             )
-            action = "create"
         else:
-            res = patch(
-                BASE_URL,
-                DATABASE_NAME,
-                COLLECTION_NAME,
-                record,
-                primary_key_field,
-                record[primary_key_field],
-            )
             action = "patch"
+            # if database record and repo record are same, skip patch
+            if record == collection_records.get(record[primary_key_field])["data"]:
+                res = "no change in data, skipping patch"
+            else:
+                res = patch(
+                    BASE_URL,
+                    DATABASE_NAME,
+                    COLLECTION_NAME,
+                    record,
+                    primary_key_field,
+                    record[primary_key_field],
+                )
 
         # log the response
         extra_fields = {
